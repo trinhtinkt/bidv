@@ -1,1 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trịnh Trọng Tín — Infographic Personal Page</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0A5EB4;   /* Xanh dương BIDV */
+      --accent:#F1C40F;    /* Vàng nhấn */
+      --dark:#0E1A2B;
+      --muted:#6B7A90;
+      --bg:#f7f9fc;
+      --white:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html, body {
+      margin:0;
+      font-family:'Montserrat', system-ui, -apple-system, sans-serif;
+      color:var(--dark);
+      background:var(--bg);
+      scroll-behavior:smooth;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+
+    /* Header / Nav */
+    header {
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: saturate(180%) blur(8px);
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid #e9eef5;
+    }
+    .nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:0.3px; }
+    .brand .logo {
+      width:36px; height:36px; border-radius:50%;
+      background:linear-gradient(135deg, var(--primary), #2f7fd9);
+      display:grid; place-items:center; color:#fff; font-weight:800;
+    }
+    .nav ul { display:flex; gap:18px; list-style:none; padding:0; margin:0; }
+    .nav a { font-weight:600; color:var(--dark); }
+    .nav a:hover { color:var(--primary); }
+
+    /* Hero */
+    .hero {
+      padding:84px 0 54px;
+      background: radial-gradient(1200px 500px at 20% -10%, #e8f1fb 0%, transparent 60%);
+    }
+    .hero-wrap { display:grid; grid-template-columns: 1.4fr 1fr; gap:36px; align-items:center; }
+    .badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:#eaf3ff; color:var(--primary);
+      padding:8px 12px; border-radius:999px; font-weight:600; font-size:13px;
+    }
+    .title { font-size:40px; line-height:1.15; margin:16px 0 12px; font-weight:800; }
+    .subtitle { color:var(--muted); font-size:16px; margin-bottom:24px; }
+    .cta { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 18px; border-radius:10px; font-weight:700; border:2px solid transparent;
+    }
+    .btn-primary { background:var(--primary); color:#fff; }
+    .btn-outline { background:#fff; color:var(--primary); border-color:#cfe2ff; }
+    .avatar {
+      width:220px; height:220px; border-radius:50%;
+      background:linear-gradient(135deg, #2f7fd9, var(--primary));
+      box-shadow:0 12px 28px rgba(10,94,180,0.25);
+      display:grid; place-items:center; color:#fff; font-size:64px; font-weight:800; margin:auto;
+      position:relative;
+    }
+    .avatar::after{
+      content:"Chuyên viên QLKH";
+      position:absolute; bottom:-14px; left:50%; transform:translateX(-50%);
+      background:#fff; border:1px solid #e3ecf6; color:var(--primary);
+      padding:6px 10px; font-size:12px; border-radius:999px; font-weight:700;
+    }
+
+    /* Section */
+    section { padding:54px 0; }
+    .section-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:22px; }
+    .section-title { font-size:28px; font-weight:800; }
+    .section-desc { color:var(--muted); }
+
+    /* Cards */
+    .grid { display:grid; gap:18px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      background:var(--white); border:1px solid #e9eef5; border-radius:16px;
+      padding:18px; box-shadow:0 10px 20px rgba(14,26,43,0.06);
+    }
+    .card .top { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+    .icon {
+      width:42px; height:42px; border-radius:12px;
+      display:grid; place-items:center; color:#fff; font-size:18px; flex-shrink:0;
+      background:var(--primary);
+    }
+    .badge-mini { display:inline-block; padding:4px 8px; border-radius:999px; font-size:12px; font-weight:700; background:#f5f9ff; color:var(--primary); border:1px solid #e3ecf6; }
+    .stat { font-size:28px; font-weight:800; color:var(--primary); }
+    .muted { color:var(--muted); }
+
+    /* Timeline */
+    .timeline { position:relative; padding-left:24px; }
+    .timeline::before { content:""; position:absolute; left:8px; top:0; bottom:0; width:4px; background:#e9eef5; border-radius:4px; }
+    .t-item { position:relative; padding:14px 14px 14px 24px; margin-bottom:12px; background:#fff; border:1px solid #e9eef5; border-radius:12px; }
+    .t-item::before {
+      content:""; position:absolute; left:-2px; top:18px; width:12px; height:12px; background:var(--accent); border:3px solid #fff; border-radius:50%;
+      box-shadow:0 0 0 3px #e9eef5;
+    }
+    .t-year { font-weight:800; color:var(--dark); }
+    .t-role { font-weight:700; color:var(--primary); }
+    .t-desc { color:var(--muted); margin-top:6px; }
+
+    /* Contact */
+    .contact { display:grid; grid-template-columns: 1.2fr 1fr; gap:18px; }
+    .contact-list { display:grid; gap:12px; }
+    .contact-item { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e9eef5; border-radius:12px; padding:12px; }
+    .qr {
+      background:#fff; border:1px solid #e9eef5; border-radius:16px; padding:16px; display:grid; place-items:center;
+    }
+    .qr-box { width:200px; height:200px; background:
+      radial-gradient(circle at 30% 30%, #000 4%, transparent 5%),
+      radial-gradient(circle at 70% 70%, #000 4%, transparent 5%),
+      linear-gradient(135deg, #000 0 50%, transparent 50% 100%); opacity:0.2; border:8px solid #111; }
+
+    /* Footer */
+    footer { padding:26px 0 40px; color:var(--muted); text-align:center; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-wrap { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .contact { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px){
+      .grid-3 { grid-template-columns: 1fr; }
+      .title { font-size:32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"><i class="fa-solid fa-chart-simple"></i></div>
+        <div>Trịnh Trọng Tín</div>
+      </div>
+      <ul>
+        <li><a href="#gioi-thieu">Giới thiệu</a></li>
+        <li><a href="#dich-vu">Dịch vụ</a></li>
+        <li><a href="#so-lieu">Số liệu</a></li>
+        <li><a href="#hanh-trinh">Timeline</a></li>
+        <li><a href="#lien-he">Liên hệ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="gioi-thieu">
+    <div class="container hero-wrap">
+      <div>
+        <div class="badge" data-aos="fade-right">
+          <i class="fa-solid fa-shield-heart"></i> BIDV Quảng Trị — PGD Thành Cổ
+        </div>
+        <h1 class="title" data-aos="fade-up">Trịnh Trọng Tín</h1>
+        <p class="subtitle" data-aos="fade-up" data-aos-delay="100">
+          Chuyên viên Quản lý Khách hàng. Hỗ trợ vay vốn, mở thẻ, gửi tiết kiệm — nhanh, minh bạch, tận tâm.
+        </p>
+        <div class="cta" data-aos="fade-up" data-aos-delay="150">
+          <a class="btn btn-primary" href="#dich-vu"><i class="fa-solid fa-compass"></i> Khám phá dịch vụ</a>
+          <a class="btn btn-outline" href="#lien-he"><i class="fa-solid fa-phone"></i> Kết nối nhanh</a>
+        </div>
+      </div>
+
+      <div data-aos="zoom-in">
+        <div class="avatar">TT</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / Infographic blocks -->
+  <section id="dich-vu">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Dịch vụ chủ đạo</div>
+          <div class="section-desc">Trình bày dạng infographic: icon, số liệu, mô tả ngắn gọn.</div>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card" data-aos="fade-up">
+          <div class="top">
+            <div class="icon" style="background:#2f7fd9"><i class="fa-solid fa-house"></i></div>
+            <div>
+              <div class="badge-mini">Vay vốn</div>
+              <div style="font-weight:700; margin-top:6px;">Tiêu dùng • SXKD • Nhà ở • Ô tô</div>
+            </div>
+          </div>
+          <p class="muted">Giải ngân nhanh, thủ tục gọn, tư vấn phương án trả nợ phù hợp.</p>
+          <div class="stat">Ưu đãi lãi suất</div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="top">
+            <div class="icon" style="background:#0A5EB4"><i class="fa-solid fa-credit-card"></i></div>
+            <div>
+              <div class="badge-mini">Thẻ tín dụng</div>
+              <div style="font-weight:700; margin-top:6px;">Hoàn tiền • Mua sắm • Du lịch</div>
+            </div>
+          </div>
+          <p class="muted">Đăng ký nhanh, tích điểm và ưu đãi đối tác. Quản lý chi tiêu thông minh.</p>
+          <div class="stat">Lợi ích đa chiều</div>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="top">
+            <div class="icon" style="background:#134e9b"><i class="fa-solid fa-piggy-bank"></i></div>
+            <div>
+              <div class="badge-mini">Gửi tiết kiệm</div>
+              <div style="font-weight:700; margin-top:6px;">Kỳ hạn linh hoạt • An toàn</div>
+            </div>
+          </div>
+          <p class="muted">Lãi suất hấp dẫn, đa dạng sản phẩm tiền gửi và giải pháp tích lũy.</p>
+          <div class="stat">Tăng trưởng ổn định</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats (example counters) -->
+  <section id="so-lieu">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Số liệu tiêu biểu</div>
+          <div class="section-desc">Một vài chỉ số minh họa tăng dần khi cuộn.</div>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card" data-aos="flip-up">
+          <div class="top">
+            <div class="icon" style="background:#F1C40F; color:#111;"><i class="fa-solid fa-users"></i></div>
+            <div>
+              <div class="badge-mini">Khách hàng</div>
+              <div class="muted">Tin tưởng dịch vụ</div>
+            </div>
+          </div>
+          <div class="stat" data-count="300">0</div>
+        </div>
+
+        <div class="card" data-aos="flip-up" data-aos-delay="100">
+          <div class="top">
+            <div class="icon" style="background:#2ecc71"><i class="fa-solid fa-briefcase"></i></div>
+            <div>
+              <div class="badge-mini">Hồ sơ xử lý</div>
+              <div class="muted">Đúng hạn</div>
+            </div>
+          </div>
+          <div class="stat" data-count="500">0</div>
+        </div>
+
+        <div class="card" data-aos="flip-up" data-aos-delay="200">
+          <div class="top">
+            <div class="icon" style="background:#e74c3c"><i class="fa-solid fa-star"></i></div>
+            <div>
+              <div class="badge-mini">Đánh giá</div>
+              <div class="muted">Từ khách hàng</div>
+            </div>
+          </div>
+          <div class="stat" data-count="4.9">0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="hanh-trinh">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Hành trình nghề nghiệp</div>
+          <div class="section-desc">Các mốc chính được hiển thị dạng timeline infographic.</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="t-item" data-aos="fade-right">
+          <div class="t-year">2025 – nay</div>
+          <div class="t-role">Chuyên viên QLKH, BIDV Quảng Trị — PGD Thành Cổ</div>
+          <div class="t-desc">Hỗ trợ vay vốn, thẻ, tiền gửi; tối ưu trải nghiệm khách hàng tại địa phương.</div>
+        </div>
+        <div class="t-item" data-aos="fade-right" data-aos-delay="100">
+          <div class="t-year">2023 – 2024</div>
+          <div class="t-role">Phụ trách danh mục khách hàng cá nhân/SME</div>
+          <div class="t-desc">Xây dựng quy trình tiếp cận và chăm sóc, nâng cao tỷ lệ duy trì.</div>
+        </div>
+        <div class="t-item" data-aos="fade-right" data-aos-delay="200">
+          <div class="t-year">Trước đây</div>
+          <div class="t-role">Tư vấn tài chính cá nhân</div>
+          <div class="t-desc">Tập trung vào giải pháp phù hợp nhu cầu và dòng tiền của khách hàng.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="lien-he">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Liên hệ</div>
+          <div class="section-desc">Kết nối nhanh qua các kênh bên dưới hoặc quét mã QR.</div>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="card contact-list" data-aos="fade-up">
+          <div class="contact-item">
+            <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div style="font-weight:700">Địa chỉ làm việc</div>
+              <div class="muted">BIDV Quảng Trị — PGD Thành Cổ, 116 Lê Duẩn, Phường Quảng Trị, Tỉnh Quảng Trị</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div style="font-weight:700">Email</div>
+              <div class="muted">tintt1@bidv.com.vn</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <div style="font-weight:700">Điện thoại/Zalo</div>
+              <div class="muted">0905 639 959</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon"><i class="fa-brands fa-facebook"></i></div>
+            <div>
+              <div style="font-weight:700">Mạng xã hội</div>
+              <div class="muted">Facebook, LinkedIn (thêm liên kết của bạn)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="qr card" data-aos="zoom-in">
+          <div style="font-weight:800; margin-bottom:8px;">QR liên hệ nhanh</div>
+          <div class="qr-box" title="Thay bằng ảnh QR thật từ vCard/Zalo"></div>
+          <div class="muted" style="margin-top:10px; font-size:13px;">Gợi ý: tạo vCard/QR Zalo và thay thế khung QR bằng ảnh thật.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © 2025 Trịnh Trọng Tín • Thiết kế theo phong cách infographic • Made with ❤
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700, offset: 80 });
+
+    // Counter animation
+    const counters = document.querySelectorAll('[data-count]');
+    const easeOutQuad = t => t*(2-t);
+    const animateCount = (el, to, duration=1200) => {
+      let start = performance.now();
+      let from = 0;
+      const isFloat = String(to).includes('.');
+      const decimals = isFloat ? (String(to).split('.')[1].length) : 0;
+
+      const tick = now => {
+        const p = Math.min((now - start)/duration, 1);
+        const value = from + (to - from)*easeOutQuad(p);
+        el.textContent = value.toFixed(decimals);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const onView = (entries, obs) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          const el = entry.target;
+          const to = parseFloat(el.getAttribute('data-count'));
+          animateCount(el, to);
+          obs.unobserve(el);
+        }
+      });
+    };
+    const io = new IntersectionObserver(onView, { threshold: 0.4 });
+    counters.forEach(c => io.observe(c));
+  </script>
+</body>
+</html>
 
